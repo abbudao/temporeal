@@ -1,0 +1,62 @@
+\documentclass[12pt,a4paper]{article} 
+\usepackage[portuguese]{babel}
+\usepackage[utf8]{inputenc}
+
+\begin{document}
+\begin{itemize}
+\item Determine se o conjunto de tarefas $A_1, A_2, A_3$ é escalonável pelo algoritmo de escalonamento RM (rate monotonic scheduling). 
+\begin{itemize}
+\item $\left{A_1,A_2 ,A_3 \right} = \left{\left(1,8 \right), \left(2,15 \right), \left(2,4 \right) \right}$.
+\item $\left{A_1 ,A_2 ,A_3 \right} = \left{\left(1,3 \right), \left(4,12 \right), \left(2,6 \right) \right}$.
+\item $\left{A_1,A_2 ,A_3 \right} = \left{\left(1,9 \right), \left(3,10 \right), \left(3,8 \right) \right}.$
+\end{itemize}
+
+\item Construa o escalonamento dos conjuntos escalonáveis do exercício anterior utilizando a política DM (deadline monotonic scheduling) e compare os resultados. Lembrete: a DM é similar a RM, mas considerando a deadline em lugar do período. Consulte o artigo de Liu & Layland.
+
+\item  Determine se o conjunto de tarefas da questão 1 é escalonável utilizando o algoritmo EDF (earliest deadline first). Construa o escalonamento dos conjuntos que forem escalonáveis.
+
+\item  Repita o exercício anterior assumindo que as tarefas $A_1, A_2, A3$ tem deadline menor que o perído. Considere que as tuplas abaixo representam (Tempo de Computação, Período, Deadline).
+
+	{A1,A2 ,A3 } = {(1,8,6), (2,15,12), (2,4,2)}. 		
+	{A1 ,A2 ,A3 } = {(1,3,2), (4,12,10), (2,6,5)}. 	
+	{A1,A2 ,A3 } = {(1,9,7), (3,10,8), (3,8,6)}.  
+
+
+\item  Encontre o valor máximo de X para o conjunto de tarefas periódicas {(x,5), (4,7)} é escalonável sob os algoritmos (a) RMS e (b) EDF.  Considere o problema de encontrar uma solução suficiente segundo o critério de Liu & Layland.
+
+
+\item Um sistema de tempo real tem o seguinte conjunto de tarefas periódicas, especificados na notação Ai = (Ci; Ti) e de deadline igual ao período.
+
+A1 = (1; 8)
+A2 = (2; 5)
+
+a) O conjunto é RM-escalonável?
+b) O conjunto é EDF-escalonável?
+c) Com base na ocupação do sistema pelas tarefas de tempo-real A1A2, determine se há margem suficiente para executar tarefas que não são de tempo-real (background) durante o tempo de inatividade do processador, no caso em que as tarefas de tempo-real são escalonadas segundo a política RM.
+
+
+\item O método Polling Server é um dos métodos utilizados para execução de tarefas de backgound (não de tempo-real) em conjunto com tarefas de tempo-real periódicas. Basicamente, o método consiste em criar uma tarefa periódica “virtual” para executar as tarefas de background: sempre que ativada, a tarefa é dedicada ao processamento de atividades que não são de tempo-real, quando elas existem no momento da ativação. A tarefa de polling é considerada juntamente às outras para a análise de escalonabilidade.  
+
+Construa um um Polling Server (isto é, especifique o período e tempo de execução de uma tarefa virtual) para ocupar o tempo ocioso de processamento do exercício 6, sem risco de violar os requisitos de tempo-real.  Verifique o resultado demonstrando graficamente o escalonamento.
+
+\item Tomando como exemplo o cenário da questão (7), considere que as tarefas de background são, na verdade, tarefas soft real-time, periódicas, com tempo de processamento e período do
+
+A3 = (5; 20)
+A4 = (1; 40)
+
+É possível escalonar ambas as tarefas soft-real time utilizando o escalonador polling server calculado anteriormente?
+
+\item Considere as tarefas :
+\begin{align*}
+  A_1 = (1, 1) \\
+  A_2 = (1, 2) \\
+  A_3 = (3, 3,5) \\
+\end{align*}
+Considere que neste sistema, ao contrário dos casos anteriores, existam dois processadores idênticos, e não apenas um, que podem receber as requisições. Isso, naturalmente, aumenta a capacidade total do sistema, dado que há mais de um processador trabalhando em paralelo para atender ao fluxo de requisições. Assim que uma requisição chega, o escalonador pode decidir a qual processador enviá-la. 
+
+Aplique o escalonamento EDF e verifique se restrição temporal atendida.
+Alternativamente, experimente um escalonador que atribua A3 sempre para um dos processadores, e A1 e A2 sempre para o outro. Verifique se escalonamento é factível.
+Considerando que a EDF é ótima (no sentido de que, se houver um escalonamento possível, então a EDF é possível), discuta o resultado.
+\end{itemize}
+
+\end{document}
